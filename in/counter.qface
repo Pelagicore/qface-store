@@ -1,0 +1,8 @@
+module store.counter 1.0
+
+interface Counter {
+    int value;
+
+    void increment();
+    void decrement();
+}

@@ -1,0 +1,3 @@
+HEADERS += $$PWD/action.h
+
+INCLUDEPATH += $$PWD
