@@ -20,10 +20,10 @@
     qDebug() << "~{{class}}()";
 }
 
-{{interface}}State {{class}}::reduce(const Action& action, const {{interface}}State& state)
+{{interface}}State {{class}}::reduce(const Action& action, const {{interface}}State& current)
 {
     qDebug() << "{{class}}::reducer() implement reducer for " << action.type();
-    return state;
+    return current;
 }
 
 void {{class}}::registerTypes(const char *uri)

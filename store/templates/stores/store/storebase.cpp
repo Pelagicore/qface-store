@@ -38,23 +38,23 @@ const QByteArray {{class}}::{{operation|upper}}("{{operation|upper}}");
 }
 {% endfor %}
 
-{{interface}}State {{class}}::state() const
+{{interface}}State {{class}}::getState() const
 {
     return m_state;
 }
 
 void {{class}}::dispatch(const Action& action)
 {
-    qDebug() << "previous state: " << m_state;
+    qDebug() << "current state: " << m_state;
     qDebug() << "dispatch: " << action.type() << " payload: " << action.payload();
     m_state = reduce(action, m_state);
     emit stateChanged(m_state);
     qDebug() << "next state: " << m_state;
 }
 
-{{interface}}State {{class}}::reduce(const Action& action, const {{interface}}State& state)
+{{interface}}State {{class}}::reduce(const Action& action, const {{interface}}State& current)
 {
     Q_UNUSED(action)
-    return state;
+    return current;
 }
 

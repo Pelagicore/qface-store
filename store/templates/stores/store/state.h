@@ -27,7 +27,7 @@ public:
     bool operator==(const {{class}} &other) const;
 
 private:
-    QSharedDataPointer<{{class}}Private> d;
+    QExplicitlySharedDataPointer<{{class}}Private> d;
     friend class {{class}}Private;
 };
 
