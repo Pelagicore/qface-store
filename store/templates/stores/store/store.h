@@ -17,6 +17,6 @@ public:
     {{class}}(QObject *parent = nullptr);
     virtual ~{{class}}();
 public:
-    virtual {{interface}}State reduce(const Action& action, const {{interface}}State& state);
+    virtual {{interface}}State reduce(const Action& action, const {{interface}}State& current);
     static void registerTypes(const char *uri);
 };

@@ -10,7 +10,6 @@
 class {{class}} : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY({{interface}}State state READ state NOTIFY stateChanged)
 {% for property in interface.properties %}
     Q_PROPERTY({{property|returnType}} {{property}} READ {{property}} NOTIFY stateChanged)
 {% endfor %}
@@ -27,13 +26,16 @@ public:
 {% endfor %}
     };
 public:
+    // properties
 {% for property in interface.properties %}
     {{property|returnType}} {{property}}() const;
 {% endfor %}
+    // operations
 {% for operation in interface.operations %}
     Q_INVOKABLE {{operation|returnType}} {{operation}}({{operation|parameters}});
 {% endfor %}
-    {{interface}}State state() const;
+    // framework
+    {{interface}}State getState() const;
     void dispatch(const Action& action);
     virtual {{interface}}State reduce(const Action& action, const {{interface}}State& state);
 Q_SIGNALS:

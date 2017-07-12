@@ -20,6 +20,9 @@ logging.config.dictConfig(yaml.load(open(here / 'log.yaml')))
 
 log = logging.getLogger(__file__)
 
+def startswith(s, p):
+    return str(s).startswith(p)
+
 
 def run(src, dst):
     log.debug('run {0} {1}'.format(src, dst))
@@ -39,6 +42,8 @@ def run(src, dst):
     generator.register_filter('open_ns', Filters.open_ns)
     generator.register_filter('close_ns', Filters.close_ns)
     generator.register_filter('using_ns', Filters.using_ns)
+    generator.register_filter('starts_with', startswith)
+
 
     ctx = {
         'dst': dst,

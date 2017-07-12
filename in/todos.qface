@@ -1,0 +1,22 @@
+module store.todos 1.0
+
+interface TodoManager {
+    model<Todo> todos;
+    void addTodo(Todo todo);
+    void toggleTodo(Todo todo);
+    void setVisibilityFilter(VisibilityFilter filter);
+};
+
+enum VisibilityFilter {
+    All,
+    Active,
+    Completed
+};
+
+
+struct Todo {
+    string id;
+    string text;
+    bool completed;
+
+};
